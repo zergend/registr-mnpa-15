@@ -48,7 +48,7 @@ $otdel = new Otdels();
 
 <label class="control-label col-xs-3">Отдел / должность:</label>
 <!--<select multiple name="selectOtdel[]">-->
-<div class=" col-lg-4">
+<div class=" col-xs-4">
     <div class="input-group">
       <input type="text" id="ddOtdel" name="dropdownOtdel" class="form-control" aria-label="..." readonly>
       <div class="input-group-btn">
@@ -75,7 +75,7 @@ foreach($listO as $row){
   </div><!-- /.col-lg-6 -->
 <!-- </select> -->
 
-<div class="col-sm-5">
+<div class="col-xs-5">
     <input type="text" class="form-control" id="dolzhnost" placeholder="Должность" name="dolzhnost">
 </div>
 
