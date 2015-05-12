@@ -2,7 +2,7 @@
 	<div class="list-group">
         <div class="dropdown">
 		<a aria-expanded="false" class="list-group-item list-group-item-info dropdown-toggle" data-toggle="dropdown" href="#">
-		  Настройка <span class="caret"></span>
+		  Настройка
 		</a>
 		<ul class="dropdown-menu">
 		  <li><a href="../../index.php?id=users">Пользователи</a>
@@ -13,7 +13,7 @@
         </div>       
         <div class="dropdown">
 		<a aria-expanded="false" class="list-group-item list-group-item-info dropdown-toggle" data-toggle="dropdown" href="#">
-		  Справочники <span class="caret"></span>
+		  Справочники
 		</a>
 		<ul class="dropdown-menu">
 		  <li><a href="../../index.php?id=otdels">Отделы</a>
@@ -26,7 +26,7 @@
         </div>
         <div class="dropdown">
 		<a aria-expanded="false" class="list-group-item list-group-item-info dropdown-toggle" data-toggle="dropdown" href="#">
-		  Операции <span class="caret"></span>
+		  Операции
 		</a>
 		<ul class="dropdown-menu">
 		  <li><a href="../../index.php?id=projects">Проекты МНПА</a>
@@ -36,7 +36,7 @@
         </div>
         <div class="dropdown">
 		<a aria-expanded="false" class="list-group-item list-group-item-info dropdown-toggle" data-toggle="dropdown" href="#">
-		  Отчеты <span class="caret"></span>
+		  Отчеты
 		</a>
 		<ul class="dropdown-menu">
 		  <li><a href="../../index.php?id=o-podgotovke">О подготовке проектов</a>

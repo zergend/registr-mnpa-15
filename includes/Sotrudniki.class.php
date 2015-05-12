@@ -24,6 +24,14 @@ class Sotrudniki extends ANewDB{
         return $this->db2Arr($result);
     }
     
+    function getById($id){
+        $sql = "SELECT * FROM sotrudniki 
+                WHERE id IN ($id)";
+        $result = $this->db->query($sql);
+        if(!$result) return false;
+        return $this->db2Arr($result);
+    }
+    
     function getSotrudnikiOtdel($otdel){
         $sql = "SELECT * FROM sotrudniki
                 WHERE otdely_id='$otdel'";

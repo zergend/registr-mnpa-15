@@ -5,8 +5,8 @@ $listProjects = $projects->getProjects();
 <table class="table table-striped table-hover ">
   <thead>
     <tr>
-      <th width="5%">#</th>
-      <th>Наименование</th>
+      <th width="65%">Наименование</th>
+      <th width="15%">Дата начала</th>
       <th width="10%">Изменение</th> 
       <th width="10%">Удаление</th>
     </tr>
@@ -15,16 +15,19 @@ $listProjects = $projects->getProjects();
 <?php
 foreach($listProjects as $row){
     echo "<tr>";
-    foreach ($row as $i=>$value) {
-        echo "<td>";
+    foreach ($row as $i=>$value) {        
         if($i == 'name'){
+            echo "<td>";
             $name = $value;
             echo $name;
-        }else{
-            $id = $value;
-            echo $id; 
-        }
-        echo "</td>";
+            echo "</td>";
+        }else{            
+            if($i == 'data_nachala') {
+                echo "<td>";
+                echo $value;  
+                echo "</td>";
+            }             
+        }        
     } 
     echo "<td>";
     echo '<a href='. $_SERVER[REQUEST_URI] . '&edit=' . $id . '>Изменить</a>';

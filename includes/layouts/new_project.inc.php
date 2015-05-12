@@ -5,6 +5,7 @@ function __autoload($class){
 }
 $project = new Projects();
 $otdel = new Otdels();
+$sotrudniki = new Sotrudniki();
 ?>
 <script type="text/javascript">
     function setOtdel(i, n){
@@ -18,78 +19,78 @@ $otdel = new Otdels();
 </div>
 <form class="form-horizontal" method="post">
   <div class="form-group">
-    <label class="control-label col-xs-3" for="lastName">Ф.И.О.:</label>
-    <div class="col-xs-3">
-      <input type="text" class="form-control" id="lastName" placeholder="Введите фамилию" name="f">
-    </div>
-    <div class="col-xs-3">
-      <input type="text" class="form-control" id="firstName" placeholder="Введите имя" name="i">
-    </div>
-    <div class="col-xs-3">
-      <input type="text" class="form-control" id="firstName" placeholder="Введите отчество" name="o">
+    <label class="control-label col-xs-3" for="lastName">Название:</label>
+    <div class="col-xs-9">
+      <input type="text" class="form-control" id="name" placeholder="Введите название" name="name">
     </div>
   </div>
   <div class="form-group">
-    <label class="control-label col-xs-3">Дата рождения:</label>
-    <div class="col-xs-3">
-        <input type="text" class="form-control" id="denR" placeholder="Введите дату рождения" name="dr">
+    <label class="control-label col-xs-3">Описание:</label>
+    <div class="col-xs-9">
+        <textarea row="3" class="form-control" id="description" placeholder="Введите описание для проекта" name="description"></textarea>
     </div>
-    <label class="control-label col-xs-3">Телефон:</label>
-    <div class="col-xs-3">
-        <input type="text" class="form-control" id="phone" placeholder="Введите телефон" name="phone">
-    </div>
-<!--    <div class="col-xs-3">
-      <select class="form-control">
-        <option>Год</option>
-      </select>
-    </div>-->
   </div>
 <div class="form-group">
-
-<label class="control-label col-xs-3">Отдел / должность:</label>
-<!--<select multiple name="selectOtdel[]">-->
-<div class=" col-xs-4">
-    <div class="input-group">
-      <input type="text" id="ddOtdel" name="dropdownOtdel" class="form-control" aria-label="..." readonly>
-      <div class="input-group-btn">
-        <button type="button" id="btnOtdel" name="selectOtdel" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Отдел <span class="caret"></span></button>
-        <ul class="dropdown-menu dropdown-menu-right" role="menu">
-<?php
-// echo "Выберите отдел: ";
-$listO = $otdel->getOtdels();
-foreach($listO as $row){
-    foreach($row as $i=>$value){
-        if($i == 'name'){
-            $newName = $value;
-        }else{
-            $newID = $value;
-        }
-    }
-    echo '<li><a onclick="setOtdel(\'' . $newID . '\', \''. $newName . '\')" href="#">' . $newName . '</a></li>';
-    
-}
-?>
-        </ul>     
-      </div><!-- /btn-group -->
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-<!-- </select> -->
-
-<div class="col-xs-5">
-    <input type="text" class="form-control" id="dolzhnost" placeholder="Должность" name="dolzhnost">
+<label class="control-label col-xs-3">Разработчики:</label>
+<div class="col-xs-9">
+    <?php 
+    $listSotrudniki = $sotrudniki->getById("6, 10");
+    require "get_sotrudniki_sl.inc.php";     
+    ?>
+</div>
 </div>
 
-</div>
-
-<br />    
 <div class="form-group">
 
 <div class="col-xs-offset-3 col-xs-8">  
-<button type="submit" class="btn btn-primary btn-sm">Добавить сотрудника</button>  
-<a class="btn btn-primary btn-sm" href="/index.php?id=sotrudniki" role="button">Отмена</a>
+<a class="btn btn-primary btn-sm" href="#" role="button">Добавить разработчика</a>
 </div>
-<div class="hidden col-xs-1">
-    <input type="text" class="form-control" id="hiddenIdOtdel" name="hiddenIdOtdel">
+</div>
+<!--
+
+<div class="form-group">
+<label class="control-label col-xs-3">Эксперты:</label>
+<div class="col-xs-9">   
+    <?php 
+    $listSotrudniki = $sotrudniki->getById("1, 3");
+    require "get_sotrudniki_sl.inc.php";     
+    ?>
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-xs-offset-3 col-xs-8">  
+<a class="btn btn-primary btn-sm" href="#" role="button">Добавить эксперта</a>
+</div>
+</div>
+
+<div class="form-group">
+<label class="control-label col-xs-3">Файлы:</label>
+<div class="col-xs-9">   
+    <?php 
+    $listSotrudniki = $sotrudniki->getById("0");
+    require "get_sotrudniki_sl.inc.php";     
+    ?>
+</div>
+</div>
+
+<div class="form-group">
+<div class="col-xs-offset-3 col-xs-8">  
+<input type="file" id="exampleInputFile">
+<a class="btn btn-primary btn-sm" href="#" role="button">Добавить файл</a>
+</div>
+</div>
+-->
+
+
+<hr />    
+<div class="form-group">
+
+<div class="col-xs-offset-3 col-xs-8">  
+<button type="submit" class="btn btn-primary btn-sm">Сохранить</button>  
+<a class="btn btn-primary btn-sm" href="/index.php?id=pro_site&id_pro=" role="button">Проект на сайт</a>
+<a class="btn btn-primary btn-sm" href="/index.php?id=pro_end&id_pro=" role="button">Завершить проект</a>
+<a class="btn btn-primary btn-sm" href="/index.php?id=projects" role="button">Отмена</a>
 </div>
 </div>
 </form>
