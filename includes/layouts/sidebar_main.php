@@ -44,6 +44,32 @@
 		  <li><a href="../../index.php?id=o-srokah">О превышении сроков проектов</a>
 		</ul>
         </div>        
-    <a class="list-group-item list-group-item-info" href="#">Выход</a>    
+    <a type="button" class="list-group-item list-group-item-info"  data-toggle="modal" data-target="#myModal">Выход</a> 
+    <!-- Button trigger modal -->
+        <button type="button" class="list-group-item list-group-item-info" data-toggle="modal" data-target="#myModal">
+          Вход
+        </button>   
 	</div>
+	
+	
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
