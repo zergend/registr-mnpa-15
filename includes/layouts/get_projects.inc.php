@@ -2,7 +2,7 @@
 $listProjects = $projects->getProjects();
 ?>
 <h1>Список проектов МНПА</h1>
-<table class="table table-striped table-hover ">
+<table class="table table-striped table-hover table-condensed">
   <thead>
     <tr>
       <th width="65%">Наименование</th>
