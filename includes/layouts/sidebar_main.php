@@ -1,3 +1,11 @@
+<script type="text/javascript">
+function InOut() {
+		Obj = document.getElementById('text').style.display='block';
+		Obj.innerHTML='Закрыть';
+}
+</script>
+
+
 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
 	<div class="list-group">
         <div class="dropdown">
@@ -44,14 +52,17 @@
 		  <li><a href="../../index.php?id=o-srokah">О превышении сроков проектов</a>
 		</ul>
         </div>        
-    <a type="button" class="list-group-item list-group-item-info"  data-toggle="modal" data-target="#myModal">Выход</a> 
-    <!-- Button trigger modal -->
-        <button type="button" class="list-group-item list-group-item-info" data-toggle="modal" data-target="#myModal">
-          Вход
-        </button>   
-	</div>
+
 	
-	
+    <div class="panel panel-info">
+        <div class="panel-body">
+        Пользователь:<hr />
+        Гость
+        </div>
+    <!-- Ссылка на модальное окно -->
+    <a class="list-group-item list-group-item-info"  data-toggle="modal" data-target="#myModal" href="#myModal">Вход</a>     
+	</div>        
+    </div>
 </div>
 
 
@@ -67,7 +78,7 @@
         ...
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="InOut();">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
