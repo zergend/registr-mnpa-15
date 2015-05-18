@@ -1,7 +1,7 @@
 <script type="text/javascript">
 function InOut() {
-		Obj = document.getElementById('text').style.display='block';
-		Obj.innerHTML='Закрыть';
+    Obj = document.getElementById('inout-ref');
+	Obj.innerHTML='Выход';
 }
 </script>
 
@@ -60,7 +60,7 @@ function InOut() {
         Гость
         </div>
     <!-- Ссылка на модальное окно -->
-    <a class="list-group-item list-group-item-info"  data-toggle="modal" data-target="#myModal" href="#myModal">Вход</a>     
+    <a class="list-group-item list-group-item-info"  data-toggle="modal" data-target="#myModal" href="#myModal" id="inout-ref">Вход</a>     
 	</div>        
     </div>
 </div>

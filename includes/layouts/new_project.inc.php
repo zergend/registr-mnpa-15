@@ -30,6 +30,25 @@ $sotrudniki = new Sotrudniki();
         <textarea row="3" class="form-control" id="description" placeholder="Введите описание для проекта" name="description"></textarea>
     </div>
   </div>
+  
+<div class="form-group">
+ <label class="control-label col-xs-3">Дата начала:</label>
+  <div class="col-xs-3 input-group date" id="datetimepicker5">
+    <input type="text" class="form-control" />
+    <span class="input-group-addon">
+      <span class="glyphicon glyphicon-calendar"></span>
+    </span>
+  </div>
+       
+    <script type="text/javascript">
+      $(function () {
+        $('#datetimepicker5').datetimepicker(
+          {pickTime: false, language: 'ru'}
+        );
+      });
+    </script>
+</div> 
+  
 <div class="form-group">
 <label class="control-label col-xs-3">Разработчики:</label>
 <div class="col-xs-9">
