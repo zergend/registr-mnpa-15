@@ -8,6 +8,9 @@ switch($id){
     case 'del_sotrudnik': include 'includes/layouts/del_sotrudnik.inc.php'; break;
     case 'edit_otdel': include 'includes/layouts/edit_otdel.inc.php'; break;
     case 'del_otdel': include 'includes/layouts/del_otdel.inc.php'; break;
+    case 'users': include 'includes/layouts/users.inc.php'; break;
+    case 'del_user': include 'includes/layouts/del_user.inc.php'; break;
+    case 'edit_user': include 'includes/layouts/edit_user.inc.php'; break;
     case 'projects': include 'includes/layouts/projects.inc.php'; break;    
     case 'new_project': include 'includes/layouts/new_project.inc.php'; break;        
     case 'edit_project': include 'includes/layouts/edit_project.inc.php'; break;
