@@ -59,28 +59,16 @@ function InOut() {
         Пользователь:<hr />
         Гость
         </div>
-    <!-- Ссылка на модальное окно -->
+    <!-- Ссылка на модальное окно (прописано в footer.php)-->
+    <?php 
+    if($_SESSION[$login]){
+        echo "вход выполнен";
+    }else{
+        echo "вход НЕ выполнен";
+    }
+        
+    ?>
     <a class="list-group-item list-group-item-info"  data-toggle="modal" data-target="#myModal" href="#myModal" id="inout-ref">Вход</a>     
 	</div>        
     </div>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="InOut();">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
 </div>

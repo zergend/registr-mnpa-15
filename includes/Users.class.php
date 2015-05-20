@@ -22,8 +22,34 @@ class Users extends ANewDB{
         $result = $this->db->query($sql);
         if(!$result) return false;
         return $this->db2Arr($result);
-    }
+    }  
 
+    // проверка корректности ввода логина и пароля
+    function logIn($login, $pwd){
+        $sql = "SELECT username, password
+                FROM users
+                WHERE username='$login'";
+        $result = $this->db->query($sql);
+        if(!$result) {
+            // echo "нет записей";
+            return false;
+        }
+        $user = $this->db2Arr($result);
+        foreach($user as $row){
+            foreach ($row as $i=>$value) {
+                if($i == 'password'){
+                    if (password_verify($pwd, $value)) {
+                        // echo 'Password is valid!';
+                        return true;
+                    }else{
+                        // echo 'Invalid password.';
+                        return false;                        
+                    }
+                }        
+            }
+        }
+    }
+  
     function getUsersRS(){
         $sql = "SELECT users.id, users.username, sotrudniki.f, role.name 
                 FROM users, sotrudniki, role

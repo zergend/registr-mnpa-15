@@ -1,8 +1,4 @@
 <?php
-
-function __autoload($class){
-    require '/includes/'.$class.'.class.php';
-}
 $users = new Users();
 $errMsg = "";
 ?>

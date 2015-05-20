@@ -1,7 +1,4 @@
 <?php
-function __autoload($class){
-    require '/includes/'.$class.'.class.php';
-}
 $sotrudnik = new Sotrudniki();
 
 // берем id из адресной строки

@@ -1,8 +1,5 @@
 <?php
 // error_reporting(E_ALL);
-function __autoload($class){
-    require '/includes/'.$class.'.class.php';
-}
 $otdel = new Otdels();
 $errMsg = "";
 ?>

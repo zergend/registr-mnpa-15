@@ -1,8 +1,4 @@
 <?php
-error_reporting(0);
-function __autoload($class){
-    require '/includes/'.$class.'.class.php';
-}
 $sotrudnik = new Sotrudniki();
 $otdel = new Otdels();
 ?>
