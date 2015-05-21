@@ -1,12 +1,8 @@
 <?php
 ob_start();
 session_start();
-// автозагрузка классов
-function __autoload($class){
-    require '/includes/'.$class.'.class.php';
-}
 
-//    require_once("/includes/functions.php");
+    require_once("/includes/functions.php");
     include("/includes/layouts/header.php"); 
 ?>
 
