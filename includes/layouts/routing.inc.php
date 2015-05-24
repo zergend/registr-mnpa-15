@@ -1,4 +1,12 @@
 <?php
+switch($_SESSION["role"]){
+    case 'Администратор': include 'includes/layouts/sidebar_admin.php'; break;
+    case 'Координатор': include 'includes/layouts/sidebar_koordinator.php'; break;
+    case 'Исполнитель': include 'includes/layouts/sidebar_autor.php'; break;
+    case 'Эксперт': include 'includes/layouts/sidebar_expert.php'; break;
+    default: include 'includes/layouts/sidebar_guest.php'; break;
+}
+
 $id = strtolower(strip_tags(trim($_GET['id'])));
 switch($id){
 	case 'otdels': include 'includes/layouts/otdels.inc.php'; break;
@@ -15,4 +23,4 @@ switch($id){
     case 'new_project': include 'includes/layouts/new_project.inc.php'; break;        
     case 'edit_project': include 'includes/layouts/edit_project.inc.php'; break;
 	default: include 'includes/layouts/mainpage.inc.php';
-}	
+}

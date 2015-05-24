@@ -3,13 +3,6 @@
 require_once("ANewDB.class.php");
 class Users extends ANewDB{
     
-    private function db2Arr($data){
-        $arr = [];
-        while($row = $data->fetchArray(SQLITE3_ASSOC))
-            $arr[] = $row;
-        return $arr;
-    }
-    
     function add($sid, $uname, $pwd, $rid){
         $pwd = password_hash($pwd, PASSWORD_DEFAULT);
         $sql = "INSERT INTO users (sotrudniki_id, username, password, role_id)
@@ -31,18 +24,19 @@ class Users extends ANewDB{
                 WHERE username='$login'";
         $result = $this->db->query($sql);
         if(!$result) {
-            // echo "нет записей";
+            // echo "нет результата";
             return false;
         }
         $user = $this->db2Arr($result);
         foreach($user as $row){
             foreach ($row as $i=>$value) {
+                echo $value;
                 if($i == 'password'){
                     if (password_verify($pwd, $value)) {
-                        // echo 'Password is valid!';
+                        // echo 'Пароль верный!';
                         return true;
                     }else{
-                        // echo 'Invalid password.';
+                        // echo 'Неверный пароль.';
                         return false;                        
                     }
                 }        
@@ -60,12 +54,21 @@ class Users extends ANewDB{
         return $this->db2Arr($result);
     }
 
-    // выбираем все роли пользователей
-    function getRole(){             
-        $sql = "SELECT * FROM role";
+    // получаем роль пользователя
+    function getRole($user){             
+        $sql = "SELECT users.username, users.role_id, role.id, role.name as role_name
+                FROM users                
+                INNER JOIN role
+                ON users.role_id = role.id
+                WHERE users.username='$user'";
         $result = $this->db->query($sql);
         if(!$result) return false;
-        return $this->db2Arr($result);
+        $roleArr = $this->db2Arr($result);
+        foreach($roleArr as $row){
+            foreach ($row as $i=>$value) {  
+                if($i == 'role_name') return $value;
+            }
+        }        
     }
     
     function getById($id){

@@ -11,7 +11,7 @@
         
           <div class="form-group">
             <label for="login">Логин:</label>
-            <input type="text" class="form-control" id="login" name="login" placeholder="Введите логин">
+            <input type="text" class="form-control" id="login" name="login" autofocus="" placeholder="Введите логин">
           </div>
           <div class="form-group">
             <label for="pwd">Пароль:</label>
@@ -62,10 +62,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     if($resultLogIn){
         // echo "Похоже, логин/пароль верные!";
         $_SESSION["user"]=$login;
+        $_SESSION["role"]=$loginUser->getRole($login);
         header("Location: " . $_SERVER['REQUEST_URI']);
         // $_SESSION["role"]=$role;
     }else{
-        $_SESSION["user"]='';        
+        $_SESSION["user"]='';
+        $_SESSION["role"]='Гость';
         header("Location: /");
     }    
 }

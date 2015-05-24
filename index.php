@@ -7,8 +7,7 @@ session_start();
 ?>
 
 <div class="container">
-  <div class="row"> 
-	<?php include("/includes/layouts/sidebar_main.php"); ?>		
+  <div class="row"> 	
 	<?php include '/includes/layouts/routing.inc.php'; ?>	
   </div>
 </div>

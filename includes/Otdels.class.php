@@ -4,13 +4,6 @@ require_once("ANewDB.class.php");
 class Otdels extends ANewDB{
     public $id, $name;
     
-    private function db2Arr($data){
-        $arr = [];
-        while($row = $data->fetchArray(SQLITE3_ASSOC))
-            $arr[] = $row;
-        return $arr;
-    }
-    
     function add($name){
         $sql = "INSERT INTO otdely (name)
                 VALUES ('$name')";

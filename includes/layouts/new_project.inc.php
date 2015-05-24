@@ -115,16 +115,17 @@ $sotrudniki = new Sotrudniki();
     
 <?php
 
+/* 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
-    $f = trim($sotrudnik->clearStr($_POST["f"]));
-    $i = trim($sotrudnik->clearStr($_POST["i"]));
-    $o = trim($sotrudnik->clearStr($_POST["o"]));
-    $dolzn = trim($sotrudnik->clearStr($_POST["dolzhnost"]));
+    $f = trim($sotrudniki->clearStr($_POST["f"]));
+    $i = trim($sotrudniki->clearStr($_POST["i"]));
+    $o = trim($sotrudniki->clearStr($_POST["o"]));
+    $dolzn = trim($sotrudniki->clearStr($_POST["dolzhnost"]));
     $otdel = abs((int)$_POST["hiddenIdOtdel"]);
     $dr = abs((int)$_POST["dr"]);
     $phone = abs((int)$_POST["phone"]);
     
-    if(!$sotrudnik->add($f, $i, $o, $dolzn, $otdel, $dr, $phone)){
+    if(!$sotrudniki->add($f, $i, $o, $dolzn, $otdel, $dr, $phone)){
         $errMsg = "Ошибка при добавлении сотрудника! Проверьте правильность заполнения полей!";        
 ?>
 <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 col-md-offset-3 col-lg-offset-3 col-sm-offset-3">
@@ -140,3 +141,4 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         // exit; 
     }    
 }
+*/

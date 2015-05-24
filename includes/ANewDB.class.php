@@ -1,8 +1,8 @@
 <?php
 abstract class ANewDB{
     const DB_NAME = "registr.db";
-	private $_db = null;
-	
+	private $_db = null;    
+    
 	function __get($name){
 		if($name == "db")
 			return $this->_db;
@@ -21,6 +21,14 @@ abstract class ANewDB{
 	function __destruct(){
 		unset($this->_db);
 	}
+
+    // функция для передачи результата запроса в массив
+    function db2Arr($data){
+        $arr = [];
+        while($row = $data->fetchArray(SQLITE3_ASSOC))
+            $arr[] = $row;
+        return $arr;
+    }
     
     // очищаем входные данные
     function clearStr($data){

@@ -4,13 +4,6 @@ require_once("ANewDB.class.php");
 class Sotrudniki extends ANewDB{
     public $id, $name;
     
-    private function db2Arr($data){
-        $arr = [];
-        while($row = $data->fetchArray(SQLITE3_ASSOC))
-            $arr[] = $row;
-        return $arr;
-    }
-    
     function add($f, $i, $o, $dolzn, $otdel, $dr, $phone){
         $sql = "INSERT INTO sotrudniki (f, i, o, dolzhnost, otdely_id, dr, phone)
                 VALUES ('$f', '$i', '$o', '$dolzn', $otdel, $dr, $phone)";

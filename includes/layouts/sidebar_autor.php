@@ -1,11 +1,3 @@
-<script type="text/javascript">
-function InOut() {
-    Obj = document.getElementById('inout-ref');
-	Obj.innerHTML='Выход';
-}
-</script>
-
-
 <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
 	<div class="list-group">
         <div class="dropdown">
@@ -59,6 +51,7 @@ function InOut() {
     <?php 
     if($_SESSION["user"] != ""){
         echo "Пользователь: <br />" . $_SESSION["user"];
+        echo "Роль: <br />" . $_SESSION["role"];
     ?>
     <a class="list-group-item list-group-item-info"  data-toggle="modal" data-target="#logoutModal" href="#logoutModal">Выход</a>
     <?php
