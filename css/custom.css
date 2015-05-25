@@ -1,3 +1,9 @@
 body { 
     padding-top: 70px; /* отступаем от верхнего навбара */
 } 
+
+.input-group[class*="col-"] {
+  float: none;
+  padding-right: 15px !important; /* для корректного отображения дата пикер в теме бутстрап*/
+  padding-left: 15px !important;
+}

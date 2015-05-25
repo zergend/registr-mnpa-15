@@ -7,7 +7,7 @@ $sotrudniki = new Sotrudniki();
     function setOtdel(i, n){
         document.getElementById('ddOtdel').value = n
         document.getElementById('hiddenIdOtdel').value = i
-    }
+    }    
 </script>
 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
 <div class="center-block">
@@ -48,70 +48,103 @@ $sotrudniki = new Sotrudniki();
 <div class="form-group">
 <label class="control-label col-xs-3">Разработчики:</label>
 <div class="col-xs-9">
-    <?php 
-    $listSotrudniki = $sotrudniki->getById("6, 10");
-    require "get_sotrudniki_sl.inc.php";     
-    ?>
+    <table class="table table-striped table-hover" id="sotrudnikiTable">
+        <thead>
+            <tr>
+                <th width="10%">#</th>
+                <th width="80%">Фамилия</th>
+                <th width="10%">Удаление</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
 </div>
 </div>
 
 <div class="form-group">
 
 <div class="col-xs-offset-3 col-xs-8">  
-<a class="btn btn-primary btn-sm" href="#" role="button">Добавить разработчика</a>
+<a class="btn btn-primary btn-sm" href="#sotrudnikiModal" role="button" data-toggle="modal" data-target="#sotrudnikiModal">Добавить разработчика</a>
 </div>
 </div>
-<!--
-
-<div class="form-group">
-<label class="control-label col-xs-3">Эксперты:</label>
-<div class="col-xs-9">   
-    <?php 
-    $listSotrudniki = $sotrudniki->getById("1, 3");
-    require "get_sotrudniki_sl.inc.php";     
-    ?>
-</div>
-</div>
-
-<div class="form-group">
-<div class="col-xs-offset-3 col-xs-8">  
-<a class="btn btn-primary btn-sm" href="#" role="button">Добавить эксперта</a>
-</div>
-</div>
-
-<div class="form-group">
-<label class="control-label col-xs-3">Файлы:</label>
-<div class="col-xs-9">   
-    <?php 
-    $listSotrudniki = $sotrudniki->getById("0");
-    require "get_sotrudniki_sl.inc.php";     
-    ?>
-</div>
-</div>
-
-<div class="form-group">
-<div class="col-xs-offset-3 col-xs-8">  
-<input type="file" id="exampleInputFile">
-<a class="btn btn-primary btn-sm" href="#" role="button">Добавить файл</a>
-</div>
-</div>
--->
-
 
 <hr />    
 <div class="form-group">
 
 <div class="col-xs-offset-3 col-xs-8">  
 <button type="submit" class="btn btn-primary btn-sm">Сохранить</button>  
-<a class="btn btn-primary btn-sm" href="/index.php?id=pro_site&id_pro=" role="button">Проект на сайт</a>
-<a class="btn btn-primary btn-sm" href="/index.php?id=pro_end&id_pro=" role="button">Завершить проект</a>
 <a class="btn btn-primary btn-sm" href="/index.php?id=projects" role="button">Отмена</a>
 </div>
 </div>
 </form>
-
-<!--</div>-->
 </div>
+    
+<!-- Modal  Sotrudniki-->
+<div class="modal fade" id="sotrudnikiModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Выбрать сотрудника</h4>
+        </div>       
+        <table class="table table-striped table-hover ">
+          <thead>
+            <tr>
+                <th width="10%"></th>
+                <th width="80%"></th>
+                <th width="10%"></th>
+            </tr>
+          </thead>
+          <tbody>
+                <?php
+                $listSotrudniki = $sotrudniki->getSotrudniki();                
+                foreach($listSotrudniki as $row){
+                    echo "<tr>";                    
+                    foreach ($row as $i=>$value) {        
+                        if($i == 'id'){
+                            echo "<td>";
+                            $id = $value;
+                            echo $id;
+                            echo "</td>";
+                        }else{
+                            if($i == 'f'){
+                                echo "<td>";
+                                $name = $value;
+                                echo $value;
+                                echo "</td>";
+                            }
+                        }        
+                    }
+                    echo "<td>";
+                     echo '<a href="#" onclick="addRow('. $id . ', \''. $name . '\');return false;">Добавить</a>';
+                    echo "</td>";
+                    echo "</tr>";
+                }
+                ?>
+          </tbody> 
+        </table> 
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>    
+    
+<script type="text/javascript">
+    function addRow(id, f){
+        var tbody = document.getElementById("sotrudnikiTable").getElementsByTagName("TBODY")[0];
+        var row = document.createElement("TR");
+        var td1 = document.createElement("TD");
+        td1.appendChild(document.createTextNode(id));
+        var td2 = document.createElement("TD");
+        td2.appendChild (document.createTextNode(f));
+        var td3 = document.createElement("TD");
+        td3.appendChild (document.createTextNode("column 2"));
+        row.appendChild(td1);
+        row.appendChild(td2);
+        row.appendChild(td3);
+        tbody.appendChild(row);
+    }    
+</script>
     
 <?php
 

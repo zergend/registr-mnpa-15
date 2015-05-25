@@ -60,19 +60,17 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $loginUser = new Users();
     $resultLogIn = $loginUser->logIn($login, $password);
     if($resultLogIn){
-        // echo "Похоже, логин/пароль верные!";
+        // echo "логин/пароль верные!";
         $_SESSION["user"]=$login;
         $_SESSION["role"]=$loginUser->getRole($login);
-        header("Location: " . $_SERVER['REQUEST_URI']);
-        // $_SESSION["role"]=$role;
+        header("Location: " . $_SERVER['REQUEST_URI']);        
     }else{
         $_SESSION["user"]='';
         $_SESSION["role"]='Гость';
         header("Location: /");
     }    
 }
-
-  
+ 
 ?>
     
   </body>
