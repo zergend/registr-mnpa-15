@@ -16,6 +16,23 @@ class Projects extends ANewDB{
         if(!$result) return false;
         return $this->db2Arr($result);
     }
+
+    function getIspolnitel($id){
+        $sql = "SELECT  proekt_mnpa.id,
+                        podgotovka_proekta.proekt_mnpa_id,
+                        podgotovka_proekta.sotrudniki_id,
+                        sotrudniki.f as last_name,
+                        sotrudniki.id
+                FROM
+                        podgotovka_proekta
+                INNER JOIN proekt_mnpa ON (podgotovka_proekta.proekt_mnpa_id = proekt_mnpa.id)
+                INNER JOIN sotrudniki ON (podgotovka_proekta.sotrudniki_id = sotrudniki.id)
+                WHERE
+                        proekt_mnpa.id = $id";
+        $result = $this->db->query($sql);
+        if(!$result) return false;
+        return $this->db2Arr($result);
+    }
     
     function getSotrudnikiOtdel($otdel){
         $sql = "SELECT * FROM sotrudniki

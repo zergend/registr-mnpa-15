@@ -22,5 +22,6 @@ switch($id){
     case 'projects': include 'includes/layouts/projects.inc.php'; break;    
     case 'new_project': include 'includes/layouts/new_project.inc.php'; break;        
     case 'edit_project': include 'includes/layouts/edit_project.inc.php'; break;
+    case 'o-podgotovke': include 'includes/layouts/rep_hod_pmnpa.inc.php'; break;    
 	default: include 'includes/layouts/mainpage.inc.php';
 }

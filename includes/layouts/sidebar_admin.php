@@ -1,4 +1,4 @@
-<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 hidden-print">
 	<div class="list-group">
         <div class="dropdown">
 		<a aria-expanded="false" class="list-group-item list-group-item-info dropdown-toggle" data-toggle="dropdown" href="#">
@@ -39,7 +39,7 @@
 		  Отчеты
 		</a>
 		<ul class="dropdown-menu">
-		  <li><a href="../../index.php?id=o-podgotovke">О подготовке проектов</a>
+		  <li><a href="../../index.php?id=o-podgotovke">О ходе подготовки проектов</a>
 		  <li><a href="../../index.php?id=o-sotrudnikah-v-proekte">О сотрудниках, участвующих в проектах</a>
 		  <li><a href="../../index.php?id=o-srokah">О превышении сроков проектов</a>
 		</ul>
