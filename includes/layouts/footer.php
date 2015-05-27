@@ -21,7 +21,7 @@
                 
       </div>
       <div class="modal-footer">
-          <button type="submit" class="btn btn-primary" name="btn-login">Войти</button>
+          <input type="submit" class="btn btn-primary" name="btn-login" value="Войти">
           <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>     
       </div>
       </form>
@@ -53,10 +53,9 @@
 </div>
             
 <?php
-
-//if($_SERVER["REQUEST_METHOD"]=="POST"){
-if (@$_REQUEST['btn-login']){
-// if(isset($_POST['btn-login'])){
+// вход<->выход (авторизация/выход)
+if(!empty($_POST)){
+if(isset($_POST['btn-login'])){
     $login = trim($_POST["login"]); 
     $password = trim($_POST["pwd"]);
     $loginUser = new Users();
@@ -67,14 +66,12 @@ if (@$_REQUEST['btn-login']){
         $_SESSION["role"]=$loginUser->getRole($login);
         header("Location: " . $_SERVER['REQUEST_URI']);        
     }
+}elseif(isset($_POST['btn-logout'])){
+    $_SESSION["user"]='';
+    $_SESSION["role"]='Гость';
+    header("Location: /");
+}else{/* do nothing */}
 }
-if (@$_REQUEST['btn-loguot']){
-        // if(isset($_POST['btn-logout'])){
-            $_SESSION["user"]='';
-            $_SESSION["role"]='Гость';
-            header("Location: /");
-        }        
- 
 ?>
     
   </body>

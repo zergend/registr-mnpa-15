@@ -87,7 +87,8 @@ $sotrudniki = new Sotrudniki();
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">Выбрать сотрудника</h4>
-        </div>       
+        </div> 
+        <div class="modal-body">
         <table class="table table-striped table-hover ">
           <thead>
             <tr>
@@ -123,8 +124,11 @@ $sotrudniki = new Sotrudniki();
                 }
                 ?>
           </tbody> 
-        </table> 
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </table>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Закрыть</button>
+        </div> 
     </div>
   </div>
 </div>    
@@ -138,7 +142,7 @@ $sotrudniki = new Sotrudniki();
         var td2 = document.createElement("TD");
         td2.appendChild (document.createTextNode(f));
         var td3 = document.createElement("TD");
-        td3.appendChild (document.createTextNode("column 2"));
+        td3.appendChild (document.createTextNode("Удалить"));
         row.appendChild(td1);
         row.appendChild(td2);
         row.appendChild(td3);
