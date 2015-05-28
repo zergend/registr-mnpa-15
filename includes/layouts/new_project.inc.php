@@ -2,6 +2,10 @@
 $project = new Projects();
 $otdel = new Otdels();
 $sotrudniki = new Sotrudniki();
+$idRazr = array();
+$idRazr[] = 1;
+$idRazr[] = 2;
+print_r($idRazr);
 ?>
 <script type="text/javascript">
     function setOtdel(i, n){
@@ -35,6 +39,9 @@ $sotrudniki = new Sotrudniki();
       <span class="glyphicon glyphicon-calendar"></span>
     </span>
   </div>
+    <div class="col-xs-6">
+      <input type="text" class="form-control" id="id-razr" name="id-razr">
+    </div>
        
     <script type="text/javascript">
       $(function () {
@@ -134,19 +141,30 @@ $sotrudniki = new Sotrudniki();
 </div>    
     
 <script type="text/javascript">
+    var i="";
     function addRow(id, f){
+        i = document.getElementById("id-razr").value;
         var tbody = document.getElementById("sotrudnikiTable").getElementsByTagName("TBODY")[0];
         var row = document.createElement("TR");
         var td1 = document.createElement("TD");
         td1.appendChild(document.createTextNode(id));
+        if(i != ""){
+            i = i + "," + id; 
+        } else {
+            i += id; 
+        }
+        document.getElementById("id-razr").value = i;
         var td2 = document.createElement("TD");
         td2.appendChild (document.createTextNode(f));
-        var td3 = document.createElement("TD");
-        td3.appendChild (document.createTextNode("Удалить"));
+        var td3 = document.createElement("TD");        
+        var newlink = document.createElement('a');
+        newlink.setAttribute('href', 'del_isp.php');
+        newlink.appendChild(document.createTextNode("Удалить"));
+        td3.appendChild (newlink);
         row.appendChild(td1);
         row.appendChild(td2);
         row.appendChild(td3);
-        tbody.appendChild(row);
+        tbody.appendChild(row);        
     }    
 </script>
     
