@@ -38,4 +38,16 @@ abstract class ANewDB{
     function clearInt($data){
         return abs((int)$data);
     }
+    
+    // генерируем уникальный id на основе временной метки
+    function newID($table){
+        $sql = "SELECT MAX(id) FROM $table";
+        $newID = (int)$this->_db->querySingle($sql);
+        if($newID>0){
+            $newID += 1;
+        }else{
+            $newID = 1;
+        }
+        return $newID;
+    }
 }

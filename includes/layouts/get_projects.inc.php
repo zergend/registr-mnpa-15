@@ -24,7 +24,7 @@ foreach($listProjects as $row){
         }else{            
             if($i == 'data_nachala') {
                 echo "<td>";
-                echo $value;  
+                echo date('d.m.Y', $value); 
                 echo "</td>";
             }             
         }        

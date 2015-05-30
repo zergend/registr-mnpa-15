@@ -31,7 +31,7 @@ $idRazr = array();
 <div class="form-group">
  <label class="control-label col-xs-3">Дата начала:</label>
   <div class="col-xs-3 input-group date" id="datetimepicker5">
-    <input type="text" class="form-control" />
+    <input type="text" class="form-control" name="datastart" />
     <span class="input-group-addon">
       <span class="glyphicon glyphicon-calendar"></span>
     </span>
@@ -170,20 +170,18 @@ $idRazr = array();
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $idRazr = explode(",", trim($_POST["id-razr"]));
-    echo '<pre>';
-    print_r($idRazr);
-    echo '</pre>';
-    /* $f = trim($sotrudniki->clearStr($_POST["f"]));
-    $i = trim($sotrudniki->clearStr($_POST["i"]));
-    $o = trim($sotrudniki->clearStr($_POST["o"]));
-    $dolzn = trim($sotrudniki->clearStr($_POST["dolzhnost"]));
-    $otdel = abs((int)$_POST["hiddenIdOtdel"]);
-    $dr = abs((int)$_POST["dr"]);
-    $phone = abs((int)$_POST["phone"]);
     
-    if(!$sotrudniki->add($f, $i, $o, $dolzn, $otdel, $dr, $phone)){
+    /* echo '<pre>';
+    print_r($idRazr);
+    echo '</pre>'; */
+    
+    $name = trim($project->clearStr($_POST["name"]));
+    $desc = trim($project->clearStr($_POST["description"]));
+    $dStart = strtotime($_POST["datastart"]);
+    
+    if(!$project->add($name, $desc, $dStart, $idRazr)){
         $errMsg = "Ошибка при добавлении проекта МНПА! Проверьте правильность заполнения данных!";        
-        */
+        
 ?>
 <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 col-md-offset-3 col-lg-offset-3 col-sm-offset-3">
 <div class="alert alert-dismissible alert-danger">
@@ -196,5 +194,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     }else{
         // header("Location: /index.php?id=sotrudniki");
         // exit; 
-    }    
+    }
+}
 ?>

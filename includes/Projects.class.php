@@ -4,9 +4,17 @@ require_once("ANewDB.class.php");
 class Projects extends ANewDB{
     public $id, $name;
     
-    function add($f, $i, $o, $dolzn, $otdel, $dr, $phone){
-        $sql = "INSERT INTO sotrudniki (f, i, o, dolzhnost, otdely_id, dr, phone)
-                VALUES ('$f', '$i', '$o', '$dolzn', $otdel, $dr, $phone)";
+    function add($name, $desc, $d_start, $sotr_id){
+        $status=1;
+        $newID = $this->newID("proekt_mnpa");
+        $sql = "INSERT INTO proekt_mnpa 
+                    (id, name, description, data_nachala, status_proekta_id)
+                VALUES ($newID, $name, $desc, $d_start, $status);";
+        foreach ($sotr_id as $i=>$value){
+            $sql = $sql . 
+                " INSERT INTO podgotovka_proekta(proekt_mnpa_id, sotrudniki_id)                   
+                VALUES ($newID, $value);";
+        }
         return $this->db->exec($sql);
     }
     
