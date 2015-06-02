@@ -6,8 +6,6 @@ $errMsg = "";
 <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
 
 <?php  
-
-    // if($_SERVER["REQUEST_METHOD"]=="POST") require "save_sotrudnik.inc.php";
     if(isset($_GET['new'])){
         $id = abs((int)$_GET['new']);
         header("Location: /index.php?id=new_sotrudnik");        

@@ -6,14 +6,12 @@ abstract class ANewDB{
 	function __get($name){
 		if($name == "db")
 			return $this->_db;
-		throw new Exception("Unknown property!");
+		throw new Exception("Неизвестное свойство!");
 	}
     
 	function __construct(){
 		$this->_db = new SQLite3(self::DB_NAME);
 		if(filesize(self::DB_NAME) == 0){
-			/* $sql = "CREATE TABLE 			
-			";*/
             echo "Нет базы данных " . self::DB_NAME;
 		}
 	}

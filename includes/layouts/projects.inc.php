@@ -19,7 +19,7 @@ $errMsg = "";
 
     if(isset($_GET['edit'])){ // редактирование проекта
         $id = abs((int)$_GET['edit']);
-        header("Location: /index.php?id=del_project&idproject=" . $id);
+        header("Location: /index.php?id=edit_project&idproject=" . $id);
     } 
 
     // список проектов МНПА

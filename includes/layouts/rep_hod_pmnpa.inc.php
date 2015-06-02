@@ -36,9 +36,13 @@ foreach($listPMNPA as $row){
             echo "</td>";
             $ispolnitel=$pmnpa->getIspolnitel($id);
             $is="";
+            $n=0;
+            $br="";
             foreach($ispolnitel as $irow){
-                foreach ($irow as $ii=>$ivalue) {        
-                    if($ii == 'last_name') $is .= $ivalue;
+                foreach ($irow as $ii=>$ivalue) {
+                    if($n>0) $br = "<br />";
+                    if($ii == 'last_name') $is .= $ivalue . $br;
+                    $n++;
                 }
             }            
         }else{

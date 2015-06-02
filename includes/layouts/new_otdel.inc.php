@@ -12,8 +12,5 @@
         if(!$otdel->add($n)){
             $errMsg = "Ошибка при добавлении отдела!";
             echo "Ошибка: " . $errMsg;
-        }else{
-            // header("Location: otdels.inc.php");
-            // exit;
         }
     }

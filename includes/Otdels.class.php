@@ -2,8 +2,6 @@
 // Отделы
 require_once("ANewDB.class.php");
 class Otdels extends ANewDB{
-    public $id, $name;
-    
     function add($name){
         $sql = "INSERT INTO otdely (name)
                 VALUES ('$name')";
@@ -33,7 +31,6 @@ class Otdels extends ANewDB{
     }
     
     function remove($id){
-        //$sql = "PRAGMA foreign_keys=ON; ";
         $sql = "DELETE FROM otdely WHERE id='$id'";
         return $this->db->exec($sql);
     }    

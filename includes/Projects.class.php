@@ -2,8 +2,6 @@
 // Проекты МНПА
 require_once("ANewDB.class.php");
 class Projects extends ANewDB{
-    public $id, $name;
-    
     function add($name, $desc, $d_start, $sotr_id){
         $status=1;
         $newID = $this->newID("proekt_mnpa");

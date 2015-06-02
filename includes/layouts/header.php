@@ -42,12 +42,6 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-<!--            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button> -->
             <a class="navbar-brand" href="/"><img alt="Регистр МНПА" src="img/logo.png"></a>
         </div>
 
@@ -57,11 +51,7 @@
                     <input class="form-control" placeholder="поиск..." type="text">              
                 </div>
                 <button type="submit" class="btn btn-default">Искать</button>
-<!--                <button type="submit" class="btn btn-default">Submit</button>-->
             </form>
-<!--            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Вход</a></li>
-            </ul> -->
         </div>
     </div>
 </nav>

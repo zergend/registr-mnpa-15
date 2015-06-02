@@ -2,8 +2,6 @@
 // Сотрудники
 require_once("ANewDB.class.php");
 class Sotrudniki extends ANewDB{
-    public $id, $name;
-    
     function add($f, $i, $o, $dolzn, $otdel, $dr, $phone){
         $sql = "INSERT INTO sotrudniki (f, i, o, dolzhnost, otdely_id, dr, phone)
                 VALUES ('$f', '$i', '$o', '$dolzn', $otdel, $dr, $phone)";

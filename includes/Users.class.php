@@ -2,7 +2,6 @@
 // Пользователи
 require_once("ANewDB.class.php");
 class Users extends ANewDB{
-    
     function add($sid, $uname, $pwd, $rid){
         $pwd = password_hash($pwd, PASSWORD_DEFAULT);
         $sql = "INSERT INTO users (sotrudniki_id, username, password, role_id)

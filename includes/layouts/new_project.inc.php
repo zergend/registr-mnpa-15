@@ -1,6 +1,6 @@
 <?php
 $project = new Projects();
-$otdel = new Otdels();
+// $otdel = new Otdels();
 $sotrudniki = new Sotrudniki();
 $idRazr = array();
 ?>
@@ -170,11 +170,6 @@ $idRazr = array();
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $idRazr = explode(",", trim($_POST["id-razr"]));
-    
-    /* echo '<pre>';
-    print_r($idRazr);
-    echo '</pre>'; */
-    
     $name = trim($project->clearStr($_POST["name"]));
     $desc = trim($project->clearStr($_POST["description"]));
     $dStart = strtotime($_POST["datastart"]);
@@ -190,10 +185,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 </div>
 </div>
 <?php
-        // echo "Ошибка: " . $errMsg;
-    }else{
-        // header("Location: /index.php?id=sotrudniki");
-        // exit; 
     }
 }
 ?>

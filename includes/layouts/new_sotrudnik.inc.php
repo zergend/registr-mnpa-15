@@ -34,16 +34,10 @@ $otdel = new Otdels();
     <div class="col-xs-3">
         <input type="text" class="form-control" id="phone" placeholder="Введите телефон" name="phone">
     </div>
-<!--    <div class="col-xs-3">
-      <select class="form-control">
-        <option>Год</option>
-      </select>
-    </div>-->
   </div>
 <div class="form-group">
 
 <label class="control-label col-xs-3">Отдел / должность:</label>
-<!--<select multiple name="selectOtdel[]">-->
 <div class=" col-xs-4">
     <div class="input-group">
       <input type="text" id="ddOtdel" name="dropdownOtdel" class="form-control" aria-label="..." readonly>
@@ -51,7 +45,6 @@ $otdel = new Otdels();
         <button type="button" id="btnOtdel" name="selectOtdel" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Отдел <span class="caret"></span></button>
         <ul class="dropdown-menu dropdown-menu-right" role="menu">
 <?php
-// echo "Выберите отдел: ";
 $listO = $otdel->getOtdels();
 foreach($listO as $row){
     foreach($row as $i=>$value){
@@ -62,7 +55,6 @@ foreach($listO as $row){
         }
     }
     echo '<li><a onclick="setOtdel(\'' . $newID . '\', \''. $newName . '\')" href="#">' . $newName . '</a></li>';
-    
 }
 ?>
         </ul>     

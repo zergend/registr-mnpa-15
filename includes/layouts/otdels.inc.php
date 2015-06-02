@@ -1,5 +1,4 @@
 <?php
-// error_reporting(E_ALL);
 $otdel = new Otdels();
 $errMsg = "";
 ?>
@@ -11,7 +10,7 @@ $errMsg = "";
     if(isset($_GET['del'])){
         $id = abs((int)$_GET['del']);
         header("Location: /index.php?id=del_otdel&idotdel=" . $id);        
-    } // require "del_otdel.inc.php";
+    } 
 
     if(isset($_GET['edit'])){ // изменение отдела
         $id = abs((int)$_GET['edit']);

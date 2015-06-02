@@ -13,21 +13,25 @@ $listProjects = $projects->getProjects();
   </thead>
   <tbody>
 <?php
+$n = 0;
 foreach($listProjects as $row){
     echo "<tr>";
+    $n++;
     foreach ($row as $i=>$value) {        
         if($i == 'name'){
             echo "<td>";
             $name = $value;
-            echo $name;
+            echo $n . ". " . $name;
             echo "</td>";
-        }else{            
-            if($i == 'data_nachala') {
+        }
+        if($i == 'id') {
+            $id = $value;
+        }                                     
+        if($i == 'data_nachala') {
                 echo "<td>";
                 echo date('d.m.Y', $value); 
                 echo "</td>";
-            }             
-        }        
+        }                             
     } 
     echo "<td>";
     echo '<a href='. $_SERVER[REQUEST_URI] . '&edit=' . $id . '>Изменить</a>';
